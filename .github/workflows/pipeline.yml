@@ -30,5 +30,4 @@ jobs:
             wc -l keystore.properties         
             echo "current dir"
             pwd
-            echo "root level"           
-            ls -l 
+
