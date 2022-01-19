@@ -1,0 +1,34 @@
+name: Main Build Pipeline
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - feature/*
+      - bugfix/*      
+  pull_request:
+    branches:
+      - '*'  
+
+jobs:     
+  build:
+    name: Build Stage
+    runs-on: ubuntu-latest
+    if: ${{ !contains(github.event.head_commit.message, 'ci skip') }}
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+
+      - name: Decode Keystore
+        env:
+            ENCODED_KEYSTORE: ${{ secrets.MY_SECRET  }}
+        run: |            
+            echo $ENCODED_KEYSTORE > "${GITHUB_WORKSPACE}"/keystore.properties
+            echo "lines"
+            wc -l keystore.properties         
+            echo "current dir"
+            pwd
+            echo "root level"           
+            ls -l 
