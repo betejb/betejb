@@ -28,6 +28,6 @@ jobs:
             echo $ENCODED_KEYSTORE | base64 -di > "${GITHUB_WORKSPACE}"/keystore.properties           
             echo "lines"
             wc -l keystore.properties         
-            echo "current dir"
+            
 
 
