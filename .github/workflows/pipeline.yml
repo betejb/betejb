@@ -26,6 +26,7 @@ jobs:
             ENCODED_KEYSTORE: ${{ secrets.MY_SECRET  }}
         run: |            
             echo $ENCODED_KEYSTORE > "${GITHUB_WORKSPACE}"/keystore.properties
+            dos2unix "${GITHUB_WORKSPACE}"/keystore.properties
             echo "lines"
             wc -l keystore.properties         
             echo "current dir"
