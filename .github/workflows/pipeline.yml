@@ -29,5 +29,5 @@ jobs:
             echo "lines"
             wc -l keystore.properties         
             echo "current dir"
-            pwd
+
 
